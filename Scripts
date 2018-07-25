@@ -1,0 +1,9 @@
+// Syncs a Google Group with a csv of user emails. Removes those not on the CSV, and adds any users on the CSV
+// who are not already in the group
+
+gam update group <groupEmail> sync member csv <csvIncludingLocation>:Email
+
+// Example
+gam update group joshtestgroup@coker.edu sync member csv ~/Desktop/allStudents.csv:Email
+
+
