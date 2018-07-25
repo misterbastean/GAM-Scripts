@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# This script will sync the google group with an authoratative csv, provided the csv has a
+# header titled "Email" (case sensitive) that has either the username or the full email address
+# Users not on the csv will be removed from the group. Users on the csv will be added to the group
+
+# Declare game alias
+gam='/Users/joshuabastean/bin/gam/gam'
+
+# Syncs group (joshtestgroup#coker.edu) with authoratative csv.
+# Must include absolute location for csv.
+$gam update group joshtestgroup@coker.edu sync member csv ~/Desktop/allStudents.csv:Email
+
+echo "Group synced successfully"
