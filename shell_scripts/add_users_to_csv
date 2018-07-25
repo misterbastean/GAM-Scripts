@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# This script should be run after getting the Informer report csv in order to add users to the group
+# who do not show up on the report itself. Usually this is for those who need to be able to send to the group
+
+# Create array of all users who need to be added to the group.
+declare -a users=("jbastean", "kzaucha")
+
+# Add new line at bottom of existing data
+echo >> allStudents.csv
+
+# Loop through usernames/emails, which both work interchangeably.
+for i in "${users[@]}"
+do
+	echo ",,,,$i,," >> allStudents.csv
+done
