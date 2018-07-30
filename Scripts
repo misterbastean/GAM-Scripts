@@ -7,3 +7,28 @@ gam update group <groupEmail> sync member csv <csvIncludingLocation>:Email
 gam update group joshtestgroup@coker.edu sync member csv ~/Desktop/allStudents.csv:Email
 
 
+
+
+
+
+// Print all users in a specific OU
+// Can use | pipe output into another command, using - as the CSV
+
+gam print users query "orgUnitPath='/{OU}'"
+
+// Examples
+
+gam print users query "orgUnitPath='/Faculty'"
+
+// Turn IMAP off for all Faculty accounts
+gam print users query "orgUnitPath='/Faculty'" | gam csv - gam update user ~primaryEmail imap off
+
+// Add all Staff to a resource calendar Access Control List (ACL) with "view" access
+gam print users query "orgUnitPath='/Staff'" | gam csv - gam calendar <calendar email> add read ~primaryEmail
+
+// Remove all Students from a resource calendar ACL
+gam print users query "orgUnitPath='/Students'" | gam csv - gam calendar <calendar email> delete user ~primaryEmail
+
+
+
+
